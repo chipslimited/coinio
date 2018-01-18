@@ -1,0 +1,11 @@
+[submodule "libraries/chainbase"]
+	path = libraries/chainbase
+	url = https://github.com/chipslimited/chainbase
+        ignore = dirty
+[submodule "libraries/appbase"]
+	path = libraries/appbase
+	url = https://github.com/chipslimited/appbase
+        ignore = dirty
+[submodule "programs/snapshot"]
+	path = programs/snapshot
+	url = https://github.com/chipslimited/genesis.git
