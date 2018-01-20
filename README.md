@@ -1,8 +1,8 @@
-## CPS.IO - The Most Powerful Infrastructure for Decentralized Applications
+## CPSCoin - The Most Powerful Infrastructure for Decentralized Applications
 
-[![Build Status](https://travis-ci.org/CPSIO/cps.svg?branch=master)](https://travis-ci.org/CPSIO/cps)
+[![Build Status](https://travis-ci.org/CPSIO/cps.svg?branch=master)](https://travis-ci.org/CPSCoin/cps)
 
-Welcome to the CPS.IO source code repository!  CPS.IO software enables developers to create and deploy
+Welcome to the CPSCoin source code repository!  CPSCoin software enables developers to create and deploy
 high-performance, horizontally scalable, blockchain infrastructure upon which decentralized applications
 can be built.
 
@@ -11,13 +11,9 @@ there is plenty early experimenters can do including, running a private multi-no
 develop applications (smart contracts).
 
 # Resources
-1. [CPS.IO Website](https://cps.io)
-2. [Documentation](https://cpsio.github.io/cps/)
-3. [Blog](https://steemit.com/@cpsio)
-4. [Community Telegram Group](https://t.me/CPSProject)
-5. [Developer Telegram Group](https://t.me/joinchat/EaEnSUPktgfoI-XPfMYtcQ)
-6. [White Paper](https://github.com/CPSIO/Documentation/blob/master/TechnicalWhitePaper.md)
-7. [Roadmap](https://github.com/CPSIO/Documentation/blob/master/Roadmap.md)
+1. [CPSCoin Website](https://CPSCoin.org)
+2. [Documentation](https://github.com/chipslimited/Documentation//)
+3. [White Paper](https://github.com/chipslimited/Documentation/blob/master/whitepaper.md)
 
 # Table of contents
 
@@ -72,7 +68,7 @@ Clone CPS repository recursively as below and run build.sh located in root `cps`
 #### Clean install Ubuntu 16.10
 
 ```bash
-git clone https://github.com/cpsio/cps --recursive
+git clone https://github.com/chipslimited/coinio --recursive
 
 cd cps
 ./build.sh ubuntu
@@ -91,7 +87,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 
 ```bash
-git clone https://github.com/cpsio/cps --recursive
+git clone https://github.com/chipslimited/coinio --recursive
 
 cd cps
 ./build.sh darwin
@@ -108,7 +104,7 @@ Now you can proceed to the next step - [Creating and launching a single-node tes
 To download all of the code, download CPS source code and a recursion or two of submodules. The easiest way to get all of this is to do a recursive clone:
 
 ```bash
-git clone https://github.com/cpsio/cps --recursive
+git clone https://github.com/chipslimited/coinio --recursive
 ```
 
 If a repo is cloned without the `--recursive` flag, the submodules can be retrieved after the fact by running this command from within the repo:
@@ -125,7 +121,7 @@ This is needed to compile the example contracts inside `cps/contracts` folder an
 
 ```bash
 cd ~
-git clone https://github.com/cpsio/cps --recursive
+git clone https://github.com/chipslimited/coinio --recursive
 mkdir -p ~/cps/build && cd ~/cps/build
 cmake -DBINARYEN_BIN=~/binaryen/bin -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOPENSSL_LIBRARIES=/usr/local/opt/openssl/lib ..
 make -j4
