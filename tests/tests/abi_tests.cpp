@@ -1649,7 +1649,7 @@ BOOST_FIXTURE_TEST_CASE(newaccount, testing_fixture)
         "accounts" : [ {"permission" : {"account" : "prm.acct1", "permission" : "prm.prm1"}, "weight" : 53005 },
                        {"permission" : {"account" : "prm.acct2", "permission" : "prm.prm2"}, "weight" : 53405 }]
      },
-     "deposit" : "-90000000.0000 CPS"
+     "deposit" : "-90000000.00000000 CPS"
    }
    )=====";
 

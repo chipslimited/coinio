@@ -111,9 +111,9 @@ $ curl  http://127.0.0.1:8888/v1/chain/get_account -X POST -d '{"name":"inita"}'
 ```
 {
   "name": "inita",
-  "cps_balance": "999998.9574 CPS",
-  "staked_balance": "0.0000 CPS",
-  "unstaking_balance": "0.0000 CPS",
+  "cps_balance": "999998.95740000 CPS",
+  "staked_balance": "0.00000000 CPS",
+  "unstaking_balance": "0.00000000 CPS",
   "last_unstaking_time": "2106-02-07T06:28:15",
   "permissions": [
     {

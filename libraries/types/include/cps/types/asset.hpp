@@ -6,8 +6,8 @@
 #include <fc/exception/exception.hpp>
 #include <cps/types/native.hpp>
 
-/// cps with 4 digits of precision
-#define CPS_SYMBOL  (int64_t(4) | (uint64_t('C') << 8) | (uint64_t('P') << 16) | (uint64_t('S') << 24))
+/// cps with 8 digits of precision
+#define CPS_SYMBOL  (int64_t(8) | (uint64_t('C') << 8) | (uint64_t('P') << 16) | (uint64_t('S') << 24))
 
 /// Defined to be largest power of 10 that fits in 53 bits of precision
 #define CPS_MAX_SHARE_SUPPLY   int64_t(1'000'000'000'000'000ll)
@@ -56,6 +56,9 @@ namespace cpsio { namespace types {
       }
       friend bool operator < (const asset& a, const asset& b)
       {
+         ilog("a.symbol ${h}: b.symbol ${p}", ("h",a.symbol)("p",b.symbol));
+          ilog("a.symbol ${h}: b.symbol ${p}", ("h",a.to_string())("p",b.to_string()));
+          ilog("a.symbol [${h}]: b.symbol [${p}]", ("h",a.symbol_name())("p",b.symbol_name()));
          FC_ASSERT(a.symbol == b.symbol);
          return std::tie(a.amount,a.symbol) < std::tie(b.amount,b.symbol);
       }

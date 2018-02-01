@@ -268,9 +268,9 @@ If all went well, you will receive output similar to the following
 ```json
 {
   "account_name": "currency",
-  "cps_balance": "0.0000 CPS",
-  "staked_balance": "0.0001 CPS",
-  "unstaking_balance": "0.0000 CPS",
+  "cps_balance": "0.00000000 CPS",
+  "staked_balance": "0.00010000 CPS",
+  "unstaking_balance": "0.00000000 CPS",
   "last_unstaking_time": "1969-12-31T23:59:59",
   "permissions": [{
     ...
