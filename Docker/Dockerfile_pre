@@ -68,7 +68,7 @@ RUN git clone --depth 1 -b releases/stable git://github.com/mongodb/mongo-cxx-dr
 
 
 
-RUN git clone -b master --depth 1 https://github.com/chipslimited/coinio.git --recursive && cd coinio \
+RUN git clone -b master --depth 1 https://github.com/chipslimited/cpscoin.git --recursive && cd cpscoin \
       && cmake -H. -B"/tmp/build" -GNinja -DCMAKE_BUILD_TYPE=Release -DWASM_LLVM_CONFIG=/opt/wasm/bin/llvm-config -DCMAKE_CXX_COMPILER=clang++ \
          -DCMAKE_C_COMPILER=clang -DCMAKE_INSTALL_PREFIX=/opt/cps  -DSecp256k1_ROOT_DIR=/usr/local \
       && cmake --build /tmp/build --target install
