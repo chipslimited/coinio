@@ -12,6 +12,8 @@
 #include <cps/database_plugin/database_plugin.hpp>
 
 #include <boost/container/flat_set.hpp>
+#include <fc/io/json.hpp>
+#include <fc/variant.hpp>
 
 namespace fc { class variant; }
 
@@ -140,6 +142,7 @@ public:
    struct get_block_params {
       string block_num_or_id;
    };
+    typedef get_block_params get_block_detail_params;
 
    struct get_block_results : public chain::signed_block {
       get_block_results( const chain::signed_block& b )
@@ -154,7 +157,49 @@ public:
       uint32_t             ref_block_prefix = 0;
    };
 
+    struct ordered_transaction_results {
+        uint32_t                    seq_num;
+        chain::transaction_id_type  transaction_id;
+        fc::variant                 transaction;
+    };
+
+    struct get_block_detail_results : public chain::signed_block {
+        get_block_detail_results( const chain::signed_block& b )
+                :signed_block(b),
+                 id(b.id()),
+                 block_num(b.block_num()),
+                 ref_block_prefix( id._hash[1] )
+        {}
+
+        void pretty_transactions(const chain_controller & chain){
+           auto block = this;
+           uint32_t seq_num = 0;
+           for (auto cycle = block->cycles.crbegin(); cycle != block->cycles.crend(); ++cycle)
+           {
+              for (auto thread = cycle->crbegin(); thread != cycle->crend(); ++thread)
+              {
+                 for (auto trx = thread->user_input.crbegin(); trx != thread->user_input.crend(); ++trx)
+                 {
+                    if(true)
+                    {
+                       seq_num++;
+                       const auto pretty_trx = chain.transaction_to_variant(*trx);
+                       transactions.emplace_back(ordered_transaction_results{seq_num, trx->id(), pretty_trx});
+                    }
+                 }
+              }
+           }
+        }
+
+        chain::block_id_type id;
+        uint32_t             block_num = 0;
+        uint32_t             ref_block_prefix = 0;
+        vector<ordered_transaction_results> transactions;
+        optional<bool>       time_limit_exceeded_error;
+    };
+
    get_block_results get_block(const get_block_params& params) const;
+   get_block_detail_results get_block_detail(const get_block_params& params) const;
 
    struct get_table_rows_params {
       bool        json = false;
@@ -318,6 +363,8 @@ FC_REFLECT(cpsio::chain_apis::read_only::get_block_params, (block_num_or_id))
   
 FC_REFLECT_DERIVED( cpsio::chain_apis::read_only::get_block_results, (cpsio::chain::signed_block), (id)(block_num)(ref_block_prefix) );
 FC_REFLECT( cpsio::chain_apis::read_write::push_transaction_results, (transaction_id)(processed) )
+FC_REFLECT( cpsio::chain_apis::read_only::ordered_transaction_results, (seq_num)(transaction_id)(transaction) )
+FC_REFLECT_DERIVED( cpsio::chain_apis::read_only::get_block_detail_results, (cpsio::chain::signed_block), (id)(block_num)(ref_block_prefix)(transactions) );
   
 FC_REFLECT( cpsio::chain_apis::read_only::get_table_rows_params, (json)(table_key)(scope)(code)(table)(lower_bound)(upper_bound)(limit) )
 FC_REFLECT( cpsio::chain_apis::read_only::get_table_rows_result, (rows)(more) );

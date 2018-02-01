@@ -385,6 +385,26 @@ read_only::get_block_results read_only::get_block(const read_only::get_block_par
                       "Could not find block: ${block}", ("block", params.block_num_or_id));
 }
 
+ read_only::get_block_detail_results read_only::get_block_detail(const read_only::get_block_params& params) const {
+    try {
+       if (auto block = db.fetch_block_by_id(fc::json::from_string(params.block_num_or_id).as<chain::block_id_type>())){
+          get_block_detail_results block_detail(*block);
+          block_detail.pretty_transactions(db);
+          return block_detail;
+       }
+    } catch (fc::bad_cast_exception) {/* do nothing */}
+    try {
+       if (auto block = db.fetch_block_by_number(fc::to_uint64(params.block_num_or_id))){
+          get_block_detail_results block_detail(*block);
+          block_detail.pretty_transactions(db);
+          return block_detail;
+      }
+    } catch (fc::bad_cast_exception) {/* do nothing */}
+
+    FC_THROW_EXCEPTION(chain::unknown_block_exception,
+                       "Could not find block: ${block}", ("block", params.block_num_or_id));
+ }
+
 read_write::push_block_results read_write::push_block(const read_write::push_block_params& params) {
    db.push_block(params, chain_controller::validation_steps::skip_nothing);
    return read_write::push_block_results();
