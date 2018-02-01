@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/CPSIO/cps.svg?branch=master)](https://travis-ci.org/CPSCoin/cps)
 
-Welcome to the CPSCoin source code repository!  CPSCoin software enables developers to create and deploy
+Welcome to the CPS Coin source code repository!  CPSCoin software enables developers to create and deploy
 high-performance, horizontally scalable, blockchain infrastructure upon which decentralized applications
 can be built.
 
@@ -13,7 +13,7 @@ develop applications (smart contracts).
 # Resources
 1. [CPSCoin Website](https://CPSCoin.org)
 2. [Documentation](https://github.com/chipslimited/Documentation//)
-3. [White Paper](https://github.com/chipslimited/Documentation/blob/master/whitepaper.md)
+3. [White Paper](https://github.com/chipslimited/Documentation/blob/master/tech_whitepaper.md)
 
 # Table of contents
 
@@ -62,7 +62,7 @@ The second optional input can be full or build where full implies that it instal
 ```bash
 ./build.sh <architecture> <optional mode>
 ```
-Clone CPS repository recursively as below and run build.sh located in root `cps` folder.
+Clone this repository recursively as below and run build.sh located in root `cps` folder.
 
 <a name="autoubuntu"></a>
 #### Clean install Ubuntu 16.10
