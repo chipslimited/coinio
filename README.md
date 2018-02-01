@@ -68,7 +68,7 @@ Clone this repository recursively as below and run build.sh located in root `cps
 #### Clean install Ubuntu 16.10
 
 ```bash
-git clone https://github.com/chipslimited/coinio --recursive
+git clone https://github.com/chipslimited/cpscoin --recursive
 
 cd cps
 ./build.sh ubuntu
@@ -87,7 +87,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 
 ```bash
-git clone https://github.com/chipslimited/coinio --recursive
+git clone https://github.com/chipslimited/cpscoin --recursive
 
 cd cps
 ./build.sh darwin
@@ -104,7 +104,7 @@ Now you can proceed to the next step - [Creating and launching a single-node tes
 To download all of the code, download CPS source code and a recursion or two of submodules. The easiest way to get all of this is to do a recursive clone:
 
 ```bash
-git clone https://github.com/chipslimited/coinio --recursive
+git clone https://github.com/chipslimited/cpscoin --recursive
 ```
 
 If a repo is cloned without the `--recursive` flag, the submodules can be retrieved after the fact by running this command from within the repo:
@@ -121,7 +121,7 @@ This is needed to compile the example contracts inside `cps/contracts` folder an
 
 ```bash
 cd ~
-git clone https://github.com/chipslimited/coinio --recursive
+git clone https://github.com/chipslimited/cpscoin --recursive
 mkdir -p ~/cps/build && cd ~/cps/build
 cmake -DBINARYEN_BIN=~/binaryen/bin -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOPENSSL_LIBRARIES=/usr/local/opt/openssl/lib ..
 make -j4
