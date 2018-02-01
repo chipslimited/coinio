@@ -8,7 +8,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install openssl 
 COPY --from=builder /usr/local/lib/* /usr/local/lib/
 COPY --from=builder /opt/cps/bin /opt/cps/bin
 COPY --from=builder /tmp/build/contracts /contracts
-COPY --from=builder /coinio/Docker/config.ini /coinio/genesis.json /
+COPY --from=builder /cpscoin/Docker/config.ini /cpscoin/genesis.json /
 COPY start_cpsd.sh /opt/cps/bin/start_cpsd.sh
 RUN chmod +x /opt/cps/bin/start_cpsd.sh
 ENV LD_LIBRARY_PATH /usr/local/lib
